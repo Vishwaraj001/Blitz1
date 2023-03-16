@@ -9,10 +9,12 @@ namespace Blitz.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserModel>().ToTable("UsersTable").HasKey(o => o.U_EmailId);
-           
+            modelBuilder.Entity<ProductModel>().ToTable("ProductsTable").HasKey(o => o.Product_Id);
+
         }
         public DbSet<UserModel> UsersTable { get; set; }
+        public DbSet<ProductModel> ProductsTable { get; set; }
 
-        
+
     }
 }

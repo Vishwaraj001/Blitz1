@@ -23,8 +23,13 @@ namespace Blitz.Controllers
         [HttpPost]
         public IActionResult Create(UserModel orders)
         {
+            ViewBag.FName = orders.FirstName; 
+            ViewBag.LastName=orders.LastName;
+
+            ViewBag.Message = "SUBMIT";
+
             UserModel ordersModel = _userRepository.AddUser(orders);
-           // return RedirectToAction("OrderDetails");
+           return RedirectToAction("Login");
             return View();
         }
 
@@ -39,6 +44,7 @@ namespace Blitz.Controllers
 
             if (loginStatus == true)
             {
+                
                 ViewBag.Message = "Success";
             }
             else

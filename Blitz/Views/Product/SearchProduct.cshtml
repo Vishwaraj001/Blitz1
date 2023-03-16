@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Blitz.Models.ProductModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SearchProduct</title>
+</head>
+<body>
+<p> 
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubCategory_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product_Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubCategory_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Product_Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Product_Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Product_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

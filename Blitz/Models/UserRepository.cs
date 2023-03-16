@@ -18,9 +18,17 @@ namespace Blitz.Models
         ProjectDbContext _projectDbContext;
         bool loginResult;
 
+
+
         public UserRepository(ProjectDbContext projectDbContext)
         {
             this._projectDbContext = projectDbContext;
+        }
+
+
+        public IEnumerable<UserModel> GetOrders()
+        {
+            return _projectDbContext.UsersTable.Select(o => o).ToList();
         }
 
         public UserModel AddUser(UserModel users)

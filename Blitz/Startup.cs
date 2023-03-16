@@ -26,6 +26,7 @@ namespace Blitz
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IUserRepository,UserRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
             services.AddControllersWithViews();
             services.AddDbContext<ProjectDbContext>(options => options.UseSqlServer("server = USBLRVMENGANE1; database = Blitz; Integrated Security = true")); // Adding Project DB connectstring with UseSqlServer() method
 
@@ -55,7 +56,7 @@ namespace Blitz
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=User}/{action=Login}/{id?}");
+                    pattern: "{controller=Product}/{action=ProductDetails}/{id?}");
             });
         }
     }
