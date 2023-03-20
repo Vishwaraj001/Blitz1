@@ -2,7 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Collections.Generic;
-using System.Security.Policy;
+
+
+
+
 
 namespace Blitz.Controllers
 {
@@ -26,7 +29,7 @@ namespace Blitz.Controllers
         [HttpPost]
         public IActionResult Create(ProductModel productModel)
         {
-           ProductModel ordersModel = _productRepository.AddProducts(productModel);
+            ProductModel ordersModel = _productRepository.AddProducts(productModel);
             //return RedirectToAction("OrderDetails");
             return View();
         }
@@ -39,13 +42,46 @@ namespace Blitz.Controllers
 
         public IActionResult SearchProduct(string name)
         {
-           // List<ProductModel> search= (List<ProductModel>)(IQueryable<ProductModel>)_productRepository.SearchProducts(name);    
-            ViewBag.Name1 = name;            
-            var searchProduct = _productRepository.SearchProducts(name);      
-            ViewBag.Name2 = name;      
+            // List<ProductModel> search= (List<ProductModel>)(IQueryable<ProductModel>)_productRepository.SearchProducts(name);    
+            ViewBag.Name1 = name;
+            var searchProduct = _productRepository.SearchProducts(name);
+            ViewBag.Name2 = name;
             return View(searchProduct);
         }
 
-     
+        [HttpGet]
+        public IActionResult Update()
+        {
+            
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Update(int id, ProductModel productModel)
+        {
+            var products = _productRepository.UpdateProduct(id,productModel);
+            return RedirectToAction("ProductDetails");
+        }
+
+
+        public IActionResult Delete()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            ProductModel o = _productRepository.DeleteById(id);
+            return View();
+        }
+
+
+
+
     }
+
+
 }
+

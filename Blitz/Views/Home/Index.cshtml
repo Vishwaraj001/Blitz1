@@ -1,134 +1,119 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Blitz E-Commerce";
+    Layout = "Navbar";
 }
 
+<!DOCTYPE html>
+<html lang="en">
 
-@*<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>*@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <title>Blitz</title>
+</head>
 
+<body>
 
-<div class="light-overlay">
-    <div class="home-inner container">
-        <div class="row">
-
-            <div class="col-lg-8 d-none d-lg-block">
-
-                <!-- Registration Modal Trigger -->
-                <button class="btn btn-success" data-toggle="modal" data-target="#registrationModal">Register</button>
-
-                <!-- Registration Modal -->
-                <div class="modal" id="registrationModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-
-                            <div class="modal-header">
-                                <h5 class="modal-title">Registration</h5>
-                                <button class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <form method='POST'>
-
-                                <div class="modal-body">
-
-                                    <div class='form-group'>
-                                        <label for="first_name">First Name</label>
-                                        <input class="form-control" type="text" name="first_name"
-                                               placeholder="Enter Your First Name" required>
-                                    </div>
-
-                                    <div class='form-group'>
-                                        <label for="last_name">Last Name</label>
-                                        <input class="form-control" type="text" name="last_name"
-                                               placeholder="Enter Your Last Name" required>
-                                    </div>
-
-                                    <div class='form-group'>
-                                        <label for="gender">Gender</label>
-
-                                        <input class="form-control" type="radio" name="gender"
-                                               id="genderRadioButton1" required>
-                                        <input class="form-control" type="radio" name="gender"
-                                               id="genderRadioButton2" required>
-
-                                    </div>
-
-                                    <div class='form-group'>
-                                        <label for="email">Email</label>
-                                        <input class="form-control" type="email" name="email"
-                                               placeholder="Enter Your Email ID" required>
-                                        <small class='form-text text-muted'>
-                                            Your Email ID will not be
-                                            shared
-                                        </small>
-                                    </div>
-
-
-                                    <div class='form-group'>
-                                        <label for="mobile_number">Mobile Number</label>
-                                        <input class="form-control" type="text" name="mobile_number"
-                                               placeholder="Enter Your Mobile Number" required>
-                                    </div>
-
-                                    <div class='form-group'>
-                                        <label for="password">Password</label>
-                                        <input class="form-control" type="password" name="password"
-                                               placeholder="Enter Your Password" required>
-                                    </div>
-
-                                    <div class='form-group'>
-                                        <label for="confirm_password">Confirm Password</label>
-                                        <input class="form-control" type="password" name="confirm_password"
-                                               placeholder="Confirm Password" required>
-                                    </div>
-
-
-                                    <div class='form-group'>
-                                        <button type="submit" class="btn btn-outline-success btn-block">
-                                            Submit
-                                        </button>
-                                    </div>
-                                </div>
-
-                            </form>
-
-                        </div>
-                    </div>
+    <div class="carousel px-5 py-3">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="  width:100%;
+        height:30%;">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://m.media-amazon.com/images/G/31/img21/Wireless/katariy/Apple/2022/i14/Aplus_14pro/iPhone_14_Pro_Product_Page_Flex_Module_Avail_Amazon_Desktop__en-IN_01._CB609619398_.jpg"
+                         class="d-block w-100" alt="">
                 </div>
-
-
-
+                <div class="carousel-item">
+                    <img src="https://static.nike.com/a/images/f_auto/dpr_1.5,cs_srgb/w_774,c_limit/77e79006-1593-4174-8aa5-bdce318eb28b/air-jordan-1-2022-lost-and-found-chicago-the-inspiration-behind-the-design.jpg"
+                         class="d-block w-100" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/5a2450f3-975c-4b15-8574-0c1edc897b4a.__CR0,0,1464,600_PT0_SX1464_V1___.jpg"
+                         class="
+                        d-block w-100" alt="">
+                </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
 
-            <div class="col-lg-4">
-                <div class="card bg-secondary text-center border border-white card-form">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <hr />
+
+    <section class="category-section container-fluid" style="background-color: #eee;">
+        <div class="px-5 py-4 container-fluid">
+            <h3 class="fw-bold">Categories</h3>
+
+            <div class="category-cards row py-3 mx-2">
+                <div class="card mx-3 pt-3" style="width: 18rem;">
+                    <img src="https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1934&q=80"
+                         class="card-img-top" alt="..." style="width:16.25rem; height: 10rem;">
                     <div class="card-body">
-                        <h3 class="text-white">Log In</h3>
-                        <p></p>
+                        <h5 class="card-title text-center">Mobile Phones</h5>
+                    </div>
+                </div>
 
-                        <form action='' method='POST'>
-
-                            <div class="form-group">
-                                <input name="email" class="form-control form-control-lg" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <input name="password" type="password" class="form-control form-control-lg"
-                                       placeholder="Password">
-                            </div>
-
-
-                            <input type="submit" value="Login" class="btn btn-outline-light btn-block">
-                        </form>
+                <div class="card mx-3 pt-3" style="width: 18rem;">
+                    <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                         alt="..." style="width:16.25rem; height: 10rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Watches</h5>
                     </div>
                 </div>
             </div>
 
+            <div class="show-products py-3 ms-4" style="float: left;">
+                <a asp-area="" asp-controller="Customer" asp-action="AllProducts">
+                    <button type="button" class="btn btn-primary">
+                        Show all products <i class="bi bi-arrow-right"></i>
+                    </button>
+                </a>
+            </div>
 
         </div>
+    </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</body>
 
+</html>
 
-
-    </div>
-</div>

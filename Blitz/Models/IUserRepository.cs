@@ -7,5 +7,7 @@ namespace Blitz.Models
         UserModel AddUser(UserModel users);
         bool CheckUserLogin(UserModel userLoginModel);
         public IEnumerable<UserModel> GetOrders();
+
+        
     }
 }

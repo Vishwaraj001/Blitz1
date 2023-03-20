@@ -27,8 +27,13 @@ namespace Blitz
         {
             services.AddTransient<IUserRepository,UserRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IAdminRepository, AdminRepository>();
             services.AddControllersWithViews();
             services.AddDbContext<ProjectDbContext>(options => options.UseSqlServer("server = USBLRVMENGANE1; database = Blitz; Integrated Security = true")); // Adding Project DB connectstring with UseSqlServer() method
+            services.AddSession();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
+            });
 
         }
 
@@ -49,15 +54,18 @@ namespace Blitz
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Product}/{action=ProductDetails}/{id?}");
+                    pattern: "{controller=Admin}/{action=Login}/{id?}");
             });
+
+            app.UseSession();
+
         }
     }
 }

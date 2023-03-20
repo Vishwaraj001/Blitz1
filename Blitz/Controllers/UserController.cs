@@ -1,5 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Blitz.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+
 namespace Blitz.Controllers
 {
     public class UserController : Controller
@@ -23,13 +28,16 @@ namespace Blitz.Controllers
         [HttpPost]
         public IActionResult Create(UserModel orders)
         {
-            ViewBag.FName = orders.FirstName; 
-            ViewBag.LastName=orders.LastName;
+            ViewBag.Button = "BUTTON CODE";
+           ViewBag.FName = orders.FirstName; 
+           ViewBag.LastName=orders.LastName;
+            ViewBag.EmailId = orders.U_EmailId;
+            ViewBag.mobile = orders.U_MobileNumber;
+            ViewBag.pass = orders.U_Password;
+            // ViewBag.Message = "SUBMIT";
 
-            ViewBag.Message = "SUBMIT";
-
-            UserModel ordersModel = _userRepository.AddUser(orders);
-           return RedirectToAction("Login");
+             UserModel ordersModel = _userRepository.AddUser(orders);
+            return RedirectToAction("Login");
             return View();
         }
 
@@ -44,8 +52,13 @@ namespace Blitz.Controllers
 
             if (loginStatus == true)
             {
+                var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, userModel.U_EmailId) },
+                CookieAuthenticationDefaults.AuthenticationScheme); var principal = new ClaimsPrincipal(identity);
+                HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                HttpContext.Session.SetString("Email", userModel.U_EmailId);
+                return RedirectToAction("ProductDetails", "Product");
                 
-                ViewBag.Message = "Success";
+
             }
             else
             {
@@ -54,6 +67,12 @@ namespace Blitz.Controllers
             }
             return View();
         }
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
+        }
+        public IActionResult HomePage() { return View(); }
 
     }
 }

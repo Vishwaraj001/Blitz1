@@ -9,6 +9,9 @@ namespace Blitz.Models
         ProductModel AddProducts(ProductModel order);
         IEnumerable<ProductModel> GetProducts();
         IEnumerable<ProductModel> SearchProducts(string OrderSearch);
+        public ProductModel UpdateProduct(int id, ProductModel productModel);
+
+       ProductModel DeleteById(int id);
     }
 }
 

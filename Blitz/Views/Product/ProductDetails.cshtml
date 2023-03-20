@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<Blitz.Models.ProductModel>
+@using PagedList;
+@using PagedList.Mvc;
 
 @{
     Layout = null;
@@ -16,6 +18,18 @@
         <input class="form-control" type="text" name="name" placeholder="Search Key">
         <input class="p-1 ml-2 btn btn-sm btn-info " type="submit" value="Search" />     
         </span> </form>
+
+   // @if (User.Identity.IsAuthenticated)
+              //  {
+        //<div class="navbar float-right">
+    
+        @*<span>Welcome to </span>*@
+
+        <span>@User.Identity.Name</span>
+        <a class="btn btn-sm btn-danger" asp-action="Logout" asp-controller="User">SignOut</a>
+       // </div>
+
+        //}
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -52,10 +66,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Product_Price)
             </td>
+
+            
+
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Product_Id">Edit</a> |
+                <a asp-action="Update" asp-route-id="@item.Product_Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Product_Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Product_Id">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.Product_Id">Delete</a> |
+                <a asp-action="AddToCart" asp-route-id="@item.Product_Id">Add To Cart</a>
             </td>
         </tr>
 }

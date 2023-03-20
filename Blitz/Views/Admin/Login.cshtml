@@ -1,4 +1,4 @@
-﻿@model Blitz.Models.UserModel
+﻿@model Blitz.Models.AdminModel
 
 @{
     ViewData["Title"] = "Login";
@@ -69,21 +69,21 @@
                         <!-- <div class="text-center">
                           <p>Not a member? <a href="#!">Register</a></p>
                         </div> -->
-                        <form name ="form1" method="post">
+                        <form name="form1" method="post">
 
                             <div class="form-outline pb-3">
                                 <label class="form-label" for="loginEmailAddress">Email</label>
-                                <input type="email" id="U_EmailId" name="U_EmailId" class="form-control form-control-lg" required />
+                                <input type="email" id="UserId" name="UserId" class="form-control form-control-lg" required />
                             </div>
 
                             <div class="form-outline">
                                 <label class="form-label" for="loginPassword">Password</label>
-                                <input type="password" id="U_Password" name="U_Password" class="form-control form-control-lg" required />
+                                <input type="password" id="Password" name="Password" class="form-control form-control-lg" required />
                             </div>
 
                             <div class="text-center mt-4 pt-2">
                                 <button type="submit" class="btn btn-primary">Log In</button>
-                                <p class="pt-2">Not a member? <a href="#!">Register</a></p>
+                                <@*p class="pt-2">Not a member? <a href="#!">Register</a></p>*@
                                 <p>@ViewBag.Message</p>
                             </div>
 
@@ -113,5 +113,7 @@
 </html>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
