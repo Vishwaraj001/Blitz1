@@ -56,7 +56,7 @@ namespace Blitz.Controllers
                 CookieAuthenticationDefaults.AuthenticationScheme); var principal = new ClaimsPrincipal(identity);
                 HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
                 HttpContext.Session.SetString("Email", userModel.U_EmailId);
-                return RedirectToAction("ProductDetails", "Product");
+                return RedirectToAction("Products", "Product");
                 
 
             }

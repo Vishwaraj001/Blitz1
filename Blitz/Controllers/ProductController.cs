@@ -40,6 +40,12 @@ namespace Blitz.Controllers
             return View(products);
         }
 
+        public IActionResult Products()
+        {
+            var products = _productRepository.GetProducts();
+            return View(products);
+        }
+
         public IActionResult SearchProduct(string name)
         {
             // List<ProductModel> search= (List<ProductModel>)(IQueryable<ProductModel>)_productRepository.SearchProducts(name);    
@@ -78,7 +84,33 @@ namespace Blitz.Controllers
         }
 
 
-
+        public IActionResult AddtoCart()
+        {
+            // if nothing is added to cart then it must show cart is empty
+            ViewBag.c =CartList.cartlist ;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddToCart(string pid)
+        {
+            foreach (var item in CartList.cartlist)
+            {
+                if (item.iid == int.Parse(pid))
+                {
+                    item.iqty += int.Parse(pid); // 
+                    ViewBag.c = CartList.cartlist;
+                    return View();
+                }
+            }
+            CartItem ci = new CartItem()
+            {
+                iid = int.Parse(pid),
+               // iqty = int.Parse(pqty)
+            }; CartList.cartlist.Add(ci);
+            ViewBag.c = CartList.cartlist;
+            
+            return View();
+        }
 
     }
 
